@@ -18,8 +18,6 @@ public abstract class SimpletronOperationCodes {
     protected static final int SUBTRACT = 31;
     protected static final int DIVIDE = 32;
     protected static final int MULITPLY = 33;
-    //protected static final int modulo = 34;
-    //protected static final int exponenciacion = 35;
 
     //Transfer of controle operations
     protected static final int BRANCH = 40;
@@ -31,5 +29,4 @@ public abstract class SimpletronOperationCodes {
     protected static final int AND = 50;
     protected static final int OR = 51;
     protected static final int XOR = 52;
-    
 }
