@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package simpletron;
+package TestPackage;
 
-/**
- *
- * @author gabri
- */
+import edu.KurtP.Simpletron.Simpletron;
 
-public class main {
+public class SimpletronTest {
 
     public static void main(String[] args) {
         if (args.length > 0) {
@@ -28,7 +21,7 @@ public class main {
     }
 
     public static void run() {
-        LMS s = new LMS();
+        Simpletron s = new Simpletron();
 
         s.run();
     }

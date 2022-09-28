@@ -1,16 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package simpletron;
-
-import javax.swing.JFrame;
+package edu.KurtP.Simpletron;
 
 /**
- *
- * @author gabri
+ * @author Kurt P
+ * @version 1.0.0.01082013
  */
-public abstract class interfaz {
+public abstract class SimpletronOperationCodes {
     //Read and write operations
     protected static final int READ = 10;
     protected static final int WRITE = 11;
@@ -37,6 +31,5 @@ public abstract class interfaz {
     protected static final int AND = 50;
     protected static final int OR = 51;
     protected static final int XOR = 52;
-
+    
 }
-

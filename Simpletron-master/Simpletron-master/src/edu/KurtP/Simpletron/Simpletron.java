@@ -1,20 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package simpletron;
+package edu.KurtP.Simpletron;
 
-/**
- *
- * @author gabri
- */
 import java.util.Scanner;
 
 /**
  * @author Kurt P
  * @version 1.0.0.01082013
  */
-public class LMS extends interfaz{
+public class Simpletron extends SimpletronOperationCodes {
 
     private int[] memory = new int[100];
     private int accumulator;
@@ -92,9 +84,9 @@ public class LMS extends interfaz{
 
         operationCode = instructionRegister / 100;
         operand = instructionRegister % 100;
-
+        
         instructionRegister = memory[instructionCounter];
-
+        
         operationCode = instructionRegister / 100;
         operand = instructionRegister % 100;
     }
@@ -157,7 +149,7 @@ public class LMS extends interfaz{
                     break;
                 }
 
-                //Mulitply the value in the accumulator by a value in memory
+            //Mulitply the value in the accumulator by a value in memory
             case MULITPLY:
                 accumulator *= memory[operand];
                 break;
@@ -192,7 +184,7 @@ public class LMS extends interfaz{
                 break;
 
         } //End switch
-
+        
         /*
          * While I was testing, I noticed that if I neede to branch to a lower
          * memory location, the instruction counter would will increment. To
@@ -226,4 +218,3 @@ public class LMS extends interfaz{
         }
     }
 }
-
