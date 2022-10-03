@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28a76ac7-88c2-4fba-98ce-1ea8dc23aaac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Simpletron-master.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simpletron-master/src/edu/KurtP/Simpletron/SimpletronOperationCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simpletron-master/src/edu/KurtP/Simpletron/SimpletronOperationCodes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Dios/Simpletron-master/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dios/Simpletron-master/Simpletron-master/src/TestPackage/SimpletronTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Dios/Simpletron-master/Simpletron-master/src/TestPackage/SimpletronTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dios/Simpletron-master/Simpletron-master/src/edu/KurtP/Simpletron/Simpletron.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Dios/Simpletron-master/Simpletron-master/src/edu/KurtP/Simpletron/Simpletron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dios/Simpletron-master/Simpletron-master/src/edu/KurtP/Simpletron/SimpletronOperationCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Dios/Simpletron-master/Simpletron-master/src/edu/KurtP/Simpletron/SimpletronOperationCodes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dios/Simpletron-master/out/production/Simpletron-master/TestPackage/SimpletronTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Dios/Simpletron-master/out/production/Simpletron-master/TestPackage/SimpletronTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dios/Simpletron-master/out/production/Simpletron-master/edu/KurtP/Simpletron/Simpletron.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Dios/Simpletron-master/out/production/Simpletron-master/edu/KurtP/Simpletron/Simpletron.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dios/Simpletron-master/out/production/Simpletron-master/edu/KurtP/Simpletron/SimpletronOperationCodes.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Dios/Simpletron-master/out/production/Simpletron-master/edu/KurtP/Simpletron/SimpletronOperationCodes.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,15 +27,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/alfar/Proyecto-Simpletron/Simpletron-master",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alfar/Proyecto-Simpletron/Simpletron-master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Simpletron-master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Simpletron-master" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,6 +61,7 @@
       <updated>1664328088016</updated>
       <workItem from="1664329893266" duration="141000" />
       <workItem from="1664330073553" duration="274000" />
+      <workItem from="1664409845886" duration="45000" />
     </task>
     <servers />
   </component>

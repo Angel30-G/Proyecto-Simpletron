@@ -3,7 +3,7 @@ package edu.KurtP.Simpletron;
 import java.util.Scanner;
 
 /**
- * @author Kurt P
+ * @author William Alfaro y Angel Vargas
  * @version 1.0.0.01082013
  */
 public class Simpletron extends SimpletronOperationCodes {
@@ -34,12 +34,9 @@ public class Simpletron extends SimpletronOperationCodes {
      * @return void
      */
     private void welcomeMessage() {
-        System.out.println("***            Welcome to Simpletron!           ***");
-        System.out.println("*** Please enter your program, one instruction  ***");
-        System.out.println("*** (or data word) at a time. I will display    ***");
-        System.out.println("*** the location number and a question mark (?) ***");
-        System.out.println("*** You then type the word for that location.   ***");
-        System.out.println("*** Type -99999 to stop entering your program.  ***");
+        System.out.println("***            Bienvenido a Simpletron!           ***");
+        System.out.println("***            Ingrese una instruccion            ***");
+        System.out.println("***      Para ejecutar use la instruccion +44000     ***");
     }
 
     private void execute() {
@@ -56,6 +53,7 @@ public class Simpletron extends SimpletronOperationCodes {
             memory[memoryPointer] = instructionInput;
             //Increment the pointer by one
             memoryPointer++;
+            System.out.println(instructionInput + "<-");
         }
         while (instructionInput != -99999);
 
@@ -82,13 +80,13 @@ public class Simpletron extends SimpletronOperationCodes {
     private void loadCode() {
         instructionRegister = memory[instructionCounter];
 
-        operationCode = instructionRegister / 100;
-        operand = instructionRegister % 100;
-        
+        operationCode = instructionRegister / 1000;
+        operand = instructionRegister % 1000;
+
         instructionRegister = memory[instructionCounter];
-        
-        operationCode = instructionRegister / 100;
-        operand = instructionRegister % 100;
+
+        operationCode = instructionRegister / 1000;
+        operand = instructionRegister % 1000;
     }
 
     /**
@@ -101,11 +99,11 @@ public class Simpletron extends SimpletronOperationCodes {
      */
     private void operations(int operationCode, int operand) {
         boolean branching = false;
-
         switch (operationCode) { //Start switch
 
             //Operations for reading input from the user
-            case READ:
+
+            case Leer:
                 Scanner read = new Scanner(System.in);
                 System.out.print("Enter a number: ");
                 int number = read.nextInt();
@@ -113,32 +111,33 @@ public class Simpletron extends SimpletronOperationCodes {
                 break;
 
             //Operations for outputting to the user
-            case WRITE:
+            case Escribir:
                 System.out.println(memory[operand]);
                 break;
 
             //Load the value found in memory into the accumulator
-            case LOAD:
+            case Cargar:
                 accumulator = memory[operand];
                 break;
 
             //Put the value in the accumlator in to memroy
-            case STORE:
+            case Almacenar:
                 memory[operand] = accumulator;
                 break;
 
             //Add the value in the accumulator and a value from memroy
-            case ADD:
+            case Suma:
+                System.out.println("Si suma");
                 accumulator += memory[operand];
                 break;
 
             //Subtract the value in the accumulator and a value in memory
-            case SUBTRACT:
+            case Resta:
                 accumulator -= memory[operand];
                 break;
 
             //Divide the value in the accumulator by a value in memory
-            case DIVIDE:
+            case Dividir:
                 //Can't divide by zero.
                 if (memory[operand] == 0) {
                     System.out.printf("\n%s\n%s\n", "*** CANNOT DIVIDE BY ZERO ***", "*** EXITING NOW ***");
@@ -150,26 +149,52 @@ public class Simpletron extends SimpletronOperationCodes {
                 }
 
             //Mulitply the value in the accumulator by a value in memory
-            case MULITPLY:
+            case Multiplicar:
                 accumulator *= memory[operand];
                 break;
 
+
+            //Mulitply the value in the accumulator by a value in memory
+            case Modulo:
+                accumulator %= memory[operand];
+                break;
+
+            //Mulitply the value in the accumulator by a value in memory
+            case Exponenciacion:
+                accumulator = (int) Math.pow(memory[operand],memory[operand]);
+                break;
+
+
             //Branc to a specific memory location
-            case BRANCH:
+            case Bifurca:
                 instructionCounter = operand;
                 branching = true;
                 break;
 
             //Branch to a memory location if the accumulator is less than zero
-            case BRANCHNEG:
+            case Bifurca_Negativo:
                 if (accumulator < 0) {
                     instructionCounter = operand;
                     branching = true;
                 }
                 break;
 
+            case Parar:
+                System.out.println("Processing complete...");
+                run = false;
+                memoryDump();
+                break;
+
+
+           case Bifurca_Positivo:
+                if (accumulator > 0) {
+                    instructionCounter = operand;
+                    branching = true;
+                }
+                break;
+
             //Branch to a memroy location if the accumulator is zero
-            case BRANCHZERO:
+            case Bifurca_Zero:
                 if (accumulator == 0) {
                     instructionCounter = operand;
                     branching = true;
@@ -177,11 +202,7 @@ public class Simpletron extends SimpletronOperationCodes {
                 break;
 
             //Finsh processing
-            case HALT:
-                System.out.println("Processing complete...");
-                run = false;
-                memoryDump();
-                break;
+
 
         } //End switch
 
@@ -202,6 +223,7 @@ public class Simpletron extends SimpletronOperationCodes {
      *
      * @return void
      */
+
     private void memoryDump() {
         int tens, ones;
 

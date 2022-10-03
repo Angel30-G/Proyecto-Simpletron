@@ -1,29 +1,41 @@
-package edu.KurtP.Simpletron;
+ package edu.KurtP.Simpletron;
 
 /**
- * @author Kurt P
- * @version 1.0.0.01082013
+ * @author William Alfaro
+ *         2022437996
+ * y
+ * Angel Vargas
+ * @version 1.0.0.0108201
  */
 public abstract class SimpletronOperationCodes {
     //Read and write operations
-    protected static final int READ = 10;
-    protected static final int WRITE = 11;
+
+    protected static final int var = 00;
+    protected static final int Leer = 10;
+    protected static final int Escribir = 11;
 
     //Load and store operations
-    protected static final int LOAD = 20;
-    protected static final int STORE = 21;
+    protected static final int Cargar = 20;
+    protected static final int Almacenar = 21;
 
     //Arithemetic operations
-    protected static final int ADD = 30;
-    protected static final int SUBTRACT = 31;
-    protected static final int DIVIDE = 32;
-    protected static final int MULITPLY = 33;
+    protected static final int Suma = 30;
+    protected static final int Resta = 31;
+    protected static final int Multiplicar = 32;
+    protected static final int Dividir = 33;
+
+
+    protected static final int Modulo = 34;
+
+    protected static final int Exponenciacion = 35;
 
     //Transfer of controle operations
-    protected static final int BRANCH = 40;
-    protected static final int BRANCHNEG = 41;
-    protected static final int BRANCHZERO = 42;
-    protected static final int HALT = 43;
+    protected static final int Bifurca = 40;
+    protected static final int Bifurca_Negativo = 41;
+    protected static final int Bifurca_Zero = 42;
+
+    protected static final int Bifurca_Positivo = 43;
+    protected static final int Parar = 44;
 
     //Locical operations
     protected static final int AND = 50;
