@@ -1,0 +1,37 @@
+@startuml 
+abstract class CodigosOperaciones
+CodigosOperaciones : #Leer
+CodigosOperaciones : #Escribir
+CodigosOperaciones : #Cargar
+CodigosOperaciones : #Almacenar
+CodigosOperaciones : #Sumar
+CodigosOperaciones : #Restar
+CodigosOperaciones : #Multiplicar
+CodigosOperaciones : #Modulo 
+CodigosOperaciones : #Exponenciacion
+CodigosOperaciones : #Bifurca
+CodigosOperaciones : #BifurcaNegativo
+CodigosOperaciones : #BifurcaZero
+CodigosOperaciones : #BifurcaPositivo
+CodigosOperaciones : #Parar
+class Terminal{
+    +void run()
+}
+class Simpletron{
+    -int memory
+    -int acumulator
+    -int instructionCounter
+    -int instructionRegister
+    -int operationCode
+    -int operand
+    -bool run
+    +void run()
+    -void welcomeMessage()
+    -void execute()
+    -void loadCode()
+    -void operations()
+}
+CodigosOperaciones --|> Simpletron
+Terminal o-- Simpletron
+@enduml
+
