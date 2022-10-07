@@ -1,12 +1,15 @@
 package tec.poo.simpletron;
 
 /**
+ *William Gerardo Alfaro Quiros – 2022437996
  *
- * @author gabri
+ * Angel Gabriel Vargas Varela - 2021080292
  */
+
+//Clase abstracta de las operaciones del simpletron
 public abstract class CodigosOperaciones {
 
-    protected static final int var = 00;
+    protected static final int variable = 00;
     protected static final int Leer = 10;
     protected static final int Escribir = 11;
     protected static final int Cargar = 20;
@@ -22,8 +25,6 @@ public abstract class CodigosOperaciones {
     protected static final int Bifurca_Zero = 42;
     protected static final int Bifurca_Positivo = 43;
     protected static final int Parar = 44;
-//    protected static final int AND = 50;
-//    protected static final int OR = 51;
-//    protected static final int XOR = 52;
+
 
 }

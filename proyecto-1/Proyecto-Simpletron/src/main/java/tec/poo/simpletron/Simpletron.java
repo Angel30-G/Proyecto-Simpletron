@@ -2,49 +2,75 @@ package tec.poo.simpletron;
 import java.util.Scanner;
 
 /**
- *William Gerardo Alfaro Quiros – 2022437996
  *
- * Angel Gabriel Vargas Varela - 2021080292
+ * @author gabri
  */
 public class Simpletron extends CodigosOperaciones {
-    private final int[] memoryArray = new int[1000];
-    private int numEntry;
-    private int acumulador;
-    private int secuenciaInstruccion;
+    private int[] memory = new int[1000];
+    private int accumulator;
+    private int instructionCounter;
+    private int registroInstruccion;
     private int codigoOperacion;
-    private boolean finish = true;
+    private int operand;
+    private boolean run = true;
+
     public Simpletron() {
     }
 
-    public void execute() {
+    public void run(){
+        this.welcomeMessage();
+        this.execute();
+    }
+
+    private void welcomeMessage() {
+        System.out.println("Simplretron [version 1.0.0]\n");
+    }
+
+    private void execute() {
         Scanner codeInputter = new Scanner(System.in);
-        int entradaInstruccion = 0;
-        int indiceMemoria = 0;
+        int instructionInput;
+        int memoryPointer = 0;
 
+        //int instructionInput;
+        do {
+            System.out.printf("%03d> ", memoryPointer);
+            instructionInput = codeInputter.nextInt();
 
-        while (entradaInstruccion != -99999) {
-            System.out.printf("%03d> ", indiceMemoria);
-            entradaInstruccion = codeInputter.nextInt();
-            this.memoryArray[indiceMemoria] = entradaInstruccion;
-            indiceMemoria += 1;
-        }
-        System.out.print("Carga completada, ejecutando\n"); //"\n%s\n%s\n\n",
+//            //int number = instructionInput;
+//
+//            //int length = String.valueOf(number).length();
+//            int longitud = (int) Math.log10(instructionInput);
+//
+//            if (longitud!=5 && longitud !=6){
+//                System.out.println("Numero invalido");
+//
+//
+    //            }else {
 
-        while(this.finish) {
+                this.memory[memoryPointer] = instructionInput;
+                ++memoryPointer;
+                //System.out.println("" + instructionInput + "<-");
+            //}
 
-            this.terminarInstruccion();
-            this.funciones(this.codigoOperacion, this.numEntry);
+        } while(instructionInput != -99999);
 
+        System.out.printf("Carga completada, ejecutando\n"); //"\n%s\n%s\n\n",
+
+        while(this.run) {
+            this.loadCode();
+            this.operations(this.codigoOperacion, this.operand);
         }
 
         System.exit(0);
     }
 
-    private void terminarInstruccion() {
-        int registroInstruccion;
-        registroInstruccion = this.memoryArray[this.secuenciaInstruccion];
-        codigoOperacion = registroInstruccion / 1000;
-        numEntry = registroInstruccion % 1000;
+    private void loadCode() {
+        this.registroInstruccion = this.memory[this.instructionCounter];
+        this.codigoOperacion = this.registroInstruccion / 1000;
+        this.operand = this.registroInstruccion % 1000;
+        this.registroInstruccion = this.memory[this.instructionCounter];
+        this.codigoOperacion = this.registroInstruccion / 1000;
+        this.operand = this.registroInstruccion % 1000;
     }
 
     private void rangeOperationNum(int operationCode){
@@ -54,87 +80,105 @@ public class Simpletron extends CodigosOperaciones {
         }
     }
 
-    private void funciones(int operationCode, int numEntry) {
+
+    private void operations(int operationCode, int operand) {
         boolean bifurcador = false;
             switch (operationCode) {
-
                 case 10:
                     Scanner read = new Scanner(System.in);
                     System.out.print("Simple> Digita un numero: ");
 
                     int number = read.nextInt();
 
-                    this.memoryArray[numEntry] = number;
+                    this.memory[operand] = number;
                     //rangeOperationNum(number);
                     break;
                 case 11:
-                    System.out.print("Simple> ");
-                    System.out.println(this.memoryArray[numEntry]);
-
+                    System.out.println(this.memory[operand]);
+                    System.out.print("Simple> %d");
                     break;
                 case 20:
-                    acumulador = this.memoryArray[numEntry];
+                    this.accumulator = this.memory[operand];
                     break;
                 case 21:
-                    memoryArray[numEntry] = this.acumulador;
+                    this.memory[operand] = this.accumulator;
                     break;
                 case 30:
-                    acumulador += this.memoryArray[numEntry];
+                    //System.out.println("Si suma");
+                    this.accumulator += this.memory[operand];
                     break;
                 case 31:
-                    acumulador -= this.memoryArray[numEntry];
+                    this.accumulator -= this.memory[operand];
                     break;
                 case 33:
-                    if (memoryArray[numEntry] != 0) {
-                        acumulador /= this.memoryArray[numEntry];
+                    if (this.memory[operand] != 0) {
+                        this.accumulator /= this.memory[operand];
                         break;
                     } else {
-                        System.out.printf("Division entre 0");
+                        System.out.printf("\n%s\n%s\n", "Division entre 0");
                         System.exit(-1);
                     }
                 case 32:
-                    acumulador *= this.memoryArray[numEntry];
+                    this.accumulator *= this.memory[operand];
                     break;
                 case 34:
-                    acumulador %= this.memoryArray[numEntry];
+                    this.accumulator %= this.memory[operand];
                     break;
                 case 35:
-                    acumulador = (int) Math.pow((double) this.memoryArray[numEntry], (double) this.memoryArray[numEntry]);
+                    this.accumulator = (int) Math.pow((double) this.memory[operand], (double) this.memory[operand]);
                     break;
                 case 40:
-                    secuenciaInstruccion = numEntry;
+                    this.instructionCounter = operand;
                     bifurcador = true;
                     break;
                 case 41:
-                    if (acumulador < 0) {
-                        secuenciaInstruccion = numEntry;
+                    if (this.accumulator < 0) {
+                        this.instructionCounter = operand;
                         bifurcador = true;
                     }
                     break;
                 case 42:
-                    if (acumulador == 0) {
-                        secuenciaInstruccion = numEntry;
+                    if (this.accumulator == 0) {
+                        this.instructionCounter = operand;
                         bifurcador = true;
                     }
                     break;
                 case 43:
-                    if (acumulador > 0) {
-                        secuenciaInstruccion = numEntry;
+                    if (this.accumulator > 0) {
+                        this.instructionCounter = operand;
                         bifurcador = true;
                     }
                     break;
                 case 44:
-                    finish = false;
+                    // System.out.println("Instruccion completada...");
+                    this.run = false;
+                    this.memoryDump();
+
                 default:
+                    //System.out.println("La operacion es invalida\n--intento desde cero");
                     break;
             }
 
             if (!bifurcador) {
-                secuenciaInstruccion += 1;
+                this.instructionCounter += 1;
 
         }
 
     }
 
+    private void memoryDump() {
+        System.out.printf("\t%02d\t%02d\t%02d\t%02d\t%02d\t%02d\t%02d\t%02d\t%02d\t%02d\n", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+        for(int tens = 0; tens < 100; tens += 10) {
+            System.out.printf("%02d\t", tens);
+
+            for(int ones = 0; ones < 10; ++ones) {
+                System.out.printf("%04d\t", this.memory[tens + ones]);
+            }
+
+            System.out.println();
+        }
+
+    }
 }
 
